@@ -31,8 +31,14 @@ public class Circular {
         return circle2D;
     }
 
+    private Geometry3D getCircle3D(JavaCSG csg) {
+        Geometry3D circle3D;
+        circle3D = csg.linearExtrude(height * heightMultiplier, false, getCircle2D(csg));
+        return circle3D;
+    }
+
     // creates circular bricks
-    public Geometry3D getCircular3D(JavaCSG csg, boolean big, boolean hollow) {
+    public Geometry3D getGeometry(JavaCSG csg, boolean big, boolean hollow) {
 
         Geometry2D circle2D = getCircle2D(csg);
 
@@ -50,7 +56,7 @@ public class Circular {
             // if big is false: then height is reduced
         } else {
             // extrudes a 2D rect to 3D at reduced height
-            res = csg.linearExtrude(height * heightMultiplier, false, circle2D);
+            res = getCircle3D(csg);
             // moves the sphere to the top of the piece
             sphere = csg.translate3DZ(height * heightMultiplier).transform(sphere);
         }

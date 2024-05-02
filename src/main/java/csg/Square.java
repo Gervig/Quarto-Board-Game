@@ -32,7 +32,6 @@ public class Square {
 
     // creates square bricks
     public Geometry3D getSquare3D(JavaCSG csg, boolean big, boolean hollow) {
-
         // get 2D rectangle and declare 3D res
         Geometry2D rect2D = getSquare2D(csg);
         // declare a 3D object called res
@@ -82,12 +81,16 @@ public class Square {
     private Geometry3D getSquareRingCutout(JavaCSG csg) {
         // creates a 2D rectangle
         Geometry2D rect2D = getSquare2D(csg);
+
         // creates larger 3D ring cutout
         Geometry3D ringCutout3DPosetive = csg.linearExtrude(ringCutout, false, rect2D);
+
         // creates smaller 2D rectangle for cutout
         Geometry2D rect2DNegative = csg.rectangle2D(width * ringCutoutSize, width * ringCutoutSize);
+
         // extrudes 2D to 3D
         Geometry3D ringCutout3DNegative = csg.linearExtrude(ringCutout, false, rect2DNegative);
+
         // removes smaller square from larger one, to make a square ring
         ringCutout3DPosetive = csg.difference3D(ringCutout3DPosetive, ringCutout3DNegative);
         return ringCutout3DPosetive;

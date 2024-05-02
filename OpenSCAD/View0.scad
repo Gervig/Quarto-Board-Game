@@ -464,6 +464,180 @@ union()
             }
         }
     }
+    translate([65.0, 0.0, 0.0])
+    {
+        difference()
+        {
+            difference()
+            {
+                difference()
+                {
+                    difference()
+                    {
+                        difference()
+                        {
+                            difference()
+                            {
+                                difference()
+                                {
+                                    difference()
+                                    {
+                                        difference()
+                                        {
+                                            difference()
+                                            {
+                                                linear_extrude(height = 3.0, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                                                {
+                                                    scale([50.0, 50.0])
+                                                    {
+                                                        M8();
+                                                    }
+                                                }
+                                                translate([0.0, 0.0, 3.0])
+                                                {
+                                                    linear_extrude(height = 0.75, twist = 0.0, scale = 1.0, slices = 1, center = true)
+                                                    {
+                                                        difference()
+                                                        {
+                                                            scale([48.0, 48.0])
+                                                            {
+                                                                M101();
+                                                            }
+                                                            scale([46.0, 46.0])
+                                                            {
+                                                                M101();
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            translate([-9.5, -9.5, 0.0])
+                                            {
+                                                translate([0.0, 0.0, 3.0])
+                                                {
+                                                    linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                                                    {
+                                                        scale([7.5, 7.5])
+                                                        {
+                                                            M101();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        translate([-9.5, -19.0, 0.0])
+                                        {
+                                            translate([0.0, 0.0, 3.0])
+                                            {
+                                                linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                                                {
+                                                    scale([7.5, 7.5])
+                                                    {
+                                                        M101();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    translate([-9.5, -28.5, 0.0])
+                                    {
+                                        translate([0.0, 0.0, 3.0])
+                                        {
+                                            linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                                            {
+                                                scale([7.5, 7.5])
+                                                {
+                                                    M101();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                translate([-19.0, -9.5, 0.0])
+                                {
+                                    translate([0.0, 0.0, 3.0])
+                                    {
+                                        linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                                        {
+                                            scale([7.5, 7.5])
+                                            {
+                                                M101();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            translate([-19.0, -19.0, 0.0])
+                            {
+                                translate([0.0, 0.0, 3.0])
+                                {
+                                    linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                                    {
+                                        scale([7.5, 7.5])
+                                        {
+                                            M101();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        translate([-19.0, -28.5, 0.0])
+                        {
+                            translate([0.0, 0.0, 3.0])
+                            {
+                                linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                                {
+                                    scale([7.5, 7.5])
+                                    {
+                                        M101();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    translate([-28.5, -9.5, 0.0])
+                    {
+                        translate([0.0, 0.0, 3.0])
+                        {
+                            linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                            {
+                                scale([7.5, 7.5])
+                                {
+                                    M101();
+                                }
+                            }
+                        }
+                    }
+                }
+                translate([-28.5, -19.0, 0.0])
+                {
+                    translate([0.0, 0.0, 3.0])
+                    {
+                        linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                        {
+                            scale([7.5, 7.5])
+                            {
+                                M101();
+                            }
+                        }
+                    }
+                }
+            }
+            translate([-28.5, -28.5, 0.0])
+            {
+                translate([0.0, 0.0, 3.0])
+                {
+                    linear_extrude(height = 1.5, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                    {
+                        scale([7.5, 7.5])
+                        {
+                            M101();
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 module M101()
