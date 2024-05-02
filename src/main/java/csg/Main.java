@@ -8,23 +8,26 @@ public class Main {
 
         JavaCSG csg = JavaCSGFactory.createNoCaching();
 
+        //universal inputs
+        int detail = 64;
+        double scale = 1.0;
+
         //brick inputs
-        double width = 5.0;
-        double height = 15.0;
+        double width = 5.0 * scale;
+        double height = 15.0* scale;
         double indentMultiplier = 0.66;
         double heightMultiplier = 0.75;
         double ringCutout = 1.0;
         double ringCutoutSize = 0.8;
 
         //board inputs
-        double boardSize = width * 10;
-        double space = 2.0;
-        double boardHeight = 3.0;
-        double brickHoleSize = width * 1.5;
-        double brickHoleDepth = boardHeight * 0.5;
+        double boardSize = (width * 10) * scale;
+        double space = 1.5* scale;
+        double boardHeight = 3.0* scale;
+        double brickHoleSize = (width * 1.5)* scale;
+        double brickHoleDepth = (boardHeight * 0.5) * scale;
 
-        //universal inputs
-        int detail = 64;
+
 
 
         // Initializes an ArrayList to hold our objects

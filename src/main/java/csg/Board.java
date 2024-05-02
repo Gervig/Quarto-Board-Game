@@ -60,17 +60,24 @@ public class Board {
         board = csg.difference3D(board, boardRing);
 
         // creates holes for bricks on the board
-        Geometry3D boardBrickHoles = getCircle3D(csg);
+        Geometry3D boardBrickHole = getCircle3D(csg);
 
-        // moves the brick holes to the top of the board
-        boardBrickHoles = csg.translate3DZ(height).transform(boardBrickHoles);
+        // moves the brick hole to the top of the board on Z-axis
+        boardBrickHole = csg.translate3DZ(height*0.5).transform(boardBrickHole);
 
-        for (int i = 1; i <= 3; i++)
-        {
-            for (int j = 1; j <= 3; j++)
-            {
+        // moves the brick hole to be centered on the board on the X-axis
+        boardBrickHole = csg.translate3DX(boardSize * 0.5 - space*1.75).transform(boardBrickHole);
+
+        // moves the brick hole to the side of the board on the Y-axis
+        boardBrickHole = csg.translate3DY(boardSize * 0.5 - space*1.5).transform(boardBrickHole);
+
+        // rotates the board 45 degrees
+        board = csg.rotate3DZ(csg.degrees(45)).transform(board);
+
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= 4; j++) {
                 // moves the board brick holes
-                Geometry3D translatedBoardBrickHoles = csg.translate3D(-(brickHoleSize + space) * i, -(brickHoleSize + space) * j, 0).transform(boardBrickHoles);
+                Geometry3D translatedBoardBrickHoles = csg.translate3D(-(brickHoleSize + space) * i, -(brickHoleSize + space) * j, 0).transform(boardBrickHole);
 
                 // cuts out the moved board brick holes
                 board = csg.difference3D(board, translatedBoardBrickHoles);
@@ -83,7 +90,7 @@ public class Board {
 
     // moves the final board, so that it's not ontop of the bricks
     private Geometry3D moveBoard(JavaCSG csg, Geometry3D board) {
-        double distance = 65.0;
+        double distance = 80.0;
         board = csg.translate3DX(distance).transform(board);
         return board;
     }
