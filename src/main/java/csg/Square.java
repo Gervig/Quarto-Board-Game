@@ -62,7 +62,7 @@ public class Square {
         Geometry3D cylinderRingCutout = getCylinderRingCutout(csg);
 
         // moves the 3D square ring up on the piece
-        cylinderRingCutout = csg.translate3DZ((height * indentMultiplier*1.25) * ringCutoutSize).transform(cylinderRingCutout);
+        cylinderRingCutout = csg.translate3DZ((height * indentMultiplier * 1.25) * ringCutoutSize).transform(cylinderRingCutout);
 
         // cuts out the sphere from the top of the piece,
         // if hollow is true
@@ -101,12 +101,12 @@ public class Square {
         // initialize and position cylinders in a square pattern
         double halfWidth = width * 0.5;
 
-            // moves the cylinders
+        // moves the cylinders
         cylinder[0] = csg.translate3D(-halfWidth, -halfWidth, 0).transform(csg.cylinder3D(ringCutout, width, detail, true));
         cylinder[1] = csg.translate3D(halfWidth, -halfWidth, 0).transform(csg.cylinder3D(ringCutout, width, detail, true));
         cylinder[2] = csg.translate3D(halfWidth, halfWidth, 0).transform(csg.cylinder3D(ringCutout, width, detail, true));
         cylinder[3] = csg.translate3D(-halfWidth, -halfWidth, 0).transform(csg.cylinder3D(ringCutout, width, detail, true));
-            // rotates the cylinders
+        // rotates the cylinders
         cylinder[0] = csg.rotate3DX(csg.degrees(90)).transform(cylinder[0]);
         cylinder[1] = csg.rotate3DX(csg.degrees(90)).transform(cylinder[1]);
         cylinder[2] = csg.rotate3DY(csg.degrees(90)).transform(cylinder[2]);

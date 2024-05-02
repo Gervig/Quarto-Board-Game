@@ -322,6 +322,148 @@ union()
             }
         }
     }
+    translate([0.0, 10.0, 0.0])
+    {
+        translate([0.0, 0.0, 0.0])
+        {
+            difference()
+            {
+                difference()
+                {
+                    linear_extrude(height = 15.0, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                    {
+                        scale([5.0, 5.0])
+                        {
+                            M101();
+                        }
+                    }
+                    translate([0.0, 0.0, 15.0])
+                    {
+                        scale([4.0, 4.0, 4.0])
+                        {
+                            rotate_extrude(angle = 360.0, $fn = 64)
+                            {
+                                M70();
+                            }
+                        }
+                    }
+                }
+                translate([0.0, 0.0, 7.920000000000001])
+                {
+                    rotate_extrude(angle = 360.0, $fn = 64)
+                    {
+                        translate([2.5, 0.0])
+                        {
+                            scale([1.0, 1.0])
+                            {
+                                M101();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    translate([0.0, 10.0, 0.0])
+    {
+        translate([10.0, 0.0, 0.0])
+        {
+            difference()
+            {
+                difference()
+                {
+                    linear_extrude(height = 11.25, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                    {
+                        scale([5.0, 5.0])
+                        {
+                            M101();
+                        }
+                    }
+                    translate([0.0, 0.0, 11.25])
+                    {
+                        scale([4.0, 4.0, 4.0])
+                        {
+                            rotate_extrude(angle = 360.0, $fn = 64)
+                            {
+                                M70();
+                            }
+                        }
+                    }
+                }
+                translate([0.0, 0.0, 7.920000000000001])
+                {
+                    rotate_extrude(angle = 360.0, $fn = 64)
+                    {
+                        translate([2.5, 0.0])
+                        {
+                            scale([1.0, 1.0])
+                            {
+                                M101();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    translate([0.0, 10.0, 0.0])
+    {
+        translate([20.0, 0.0, 0.0])
+        {
+            difference()
+            {
+                linear_extrude(height = 15.0, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                {
+                    scale([5.0, 5.0])
+                    {
+                        M101();
+                    }
+                }
+                translate([0.0, 0.0, 7.920000000000001])
+                {
+                    rotate_extrude(angle = 360.0, $fn = 64)
+                    {
+                        translate([2.5, 0.0])
+                        {
+                            scale([1.0, 1.0])
+                            {
+                                M101();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    translate([0.0, 10.0, 0.0])
+    {
+        translate([30.0, 0.0, 0.0])
+        {
+            difference()
+            {
+                linear_extrude(height = 11.25, twist = 0.0, scale = 1.0, slices = 1, center = false)
+                {
+                    scale([5.0, 5.0])
+                    {
+                        M101();
+                    }
+                }
+                translate([0.0, 0.0, 7.920000000000001])
+                {
+                    rotate_extrude(angle = 360.0, $fn = 64)
+                    {
+                        translate([2.5, 0.0])
+                        {
+                            scale([1.0, 1.0])
+                            {
+                                M101();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 module M101()
