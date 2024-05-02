@@ -1,4 +1,4 @@
-package java;
+package csg;
 
 public class Main {
 }
