@@ -6,7 +6,6 @@ import org.abstractica.javacsg.JavaCSG;
 
 public class Square {
 
-
     private final double width;
     private final double height;
     private final int detail;
@@ -15,7 +14,6 @@ public class Square {
     private final double ringCutout;
     private final double ringCutoutSize;
     private double distance;
-
 
     public Square(double width, double height, int detail, double indentMultiplier, double heightMultiplier, double ringCutout, double ringCutoutSize) {
         this.width = width;
@@ -32,6 +30,7 @@ public class Square {
         return rect;
     }
 
+    // creates square bricks
     public Geometry3D getSquare3D(JavaCSG csg, boolean big, boolean hollow) {
 
         // get 2D rectangle and declare 3D res
@@ -41,7 +40,6 @@ public class Square {
 
         // sphere to hollow out piece
         Geometry3D sphere = getSphere(csg);
-        // creates a 3D square ring
 
         // if boolean big is true: then height is not reduced
         if (big) {
@@ -56,19 +54,25 @@ public class Square {
             // moves the sphere to the top of the piece
             sphere = csg.translate3DZ(height * heightMultiplier).transform(sphere);
         }
+
         // creates a 3D square ring
 //        Geometry3D squareRingCutout3DPositive = getSquareRingCutout(csg);
+
         // creates a 3D cylinder ring
         Geometry3D cylinderRingCutout = getCylinderRingCutout(csg);
+
         // moves the 3D square ring up on the piece
         cylinderRingCutout = csg.translate3DZ((height * indentMultiplier*1.25) * ringCutoutSize).transform(cylinderRingCutout);
+
         // cuts out the sphere from the top of the piece,
         // if hollow is true
         if (hollow) {
             res = csg.difference3D(res, sphere);
         }
+
         // cuts out the ring on the piece
         res = csg.difference3D(res, cylinderRingCutout);
+
         // moves the pieces, so they can all be displayed in the same file
         res = movePiece(csg, res);
         return res;
@@ -96,13 +100,12 @@ public class Square {
 
         // initialize and position cylinders in a square pattern
         double halfWidth = width * 0.5;
-        double cutoutSize = width * indentMultiplier/4;
 
             // moves the cylinders
-        cylinder[0] = csg.translate3D(-halfWidth, -halfWidth, 0).transform(csg.cylinder3D(cutoutSize, width, detail, true));
-        cylinder[1] = csg.translate3D(halfWidth, -halfWidth, 0).transform(csg.cylinder3D(cutoutSize, width, detail, true));
-        cylinder[2] = csg.translate3D(halfWidth, halfWidth, 0).transform(csg.cylinder3D(cutoutSize, width, detail, true));
-        cylinder[3] = csg.translate3D(-halfWidth, -halfWidth, 0).transform(csg.cylinder3D(cutoutSize, width, detail, true));
+        cylinder[0] = csg.translate3D(-halfWidth, -halfWidth, 0).transform(csg.cylinder3D(ringCutout, width, detail, true));
+        cylinder[1] = csg.translate3D(halfWidth, -halfWidth, 0).transform(csg.cylinder3D(ringCutout, width, detail, true));
+        cylinder[2] = csg.translate3D(halfWidth, halfWidth, 0).transform(csg.cylinder3D(ringCutout, width, detail, true));
+        cylinder[3] = csg.translate3D(-halfWidth, -halfWidth, 0).transform(csg.cylinder3D(ringCutout, width, detail, true));
             // rotates the cylinders
         cylinder[0] = csg.rotate3DX(csg.degrees(90)).transform(cylinder[0]);
         cylinder[1] = csg.rotate3DX(csg.degrees(90)).transform(cylinder[1]);
@@ -115,8 +118,6 @@ public class Square {
         return cylinderFinal;
     }
 
-
-
     // distance for translating (moving) the pieces,
     // so they don't display on top of each other
     private Geometry3D movePiece(JavaCSG csg, Geometry3D square) {
@@ -127,7 +128,7 @@ public class Square {
 
     private Geometry3D getSphere(JavaCSG csg) {
         // width is made shorter to make the hollow part fit the piece
-        Geometry3D sph3D = csg.sphere3D(width * 0.8, detail, true);
+        Geometry3D sph3D = csg.sphere3D(width * ringCutoutSize, detail, true);
         return sph3D;
     }
 }
