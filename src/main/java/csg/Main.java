@@ -9,10 +9,13 @@ public class Main {
 
         double width = 5.0;
         double height = 15.0;
-        double heightMultiplier = 0.5;
+        double indentMultiplier = 0.66;
+        double heightMultiplier = 0.75;
+        double ringCutout = 1.0;
+        double ringCutoutSize = 0.8;
         int detail = 64;
 
-        Square square = new Square(width, height, detail, heightMultiplier);
+        Square square = new Square(width, height, detail, indentMultiplier, heightMultiplier, ringCutout, ringCutoutSize);
 
         // Square high hollow
         Geometry3D res1 = square.getSquare3D(csg, true, true);
@@ -28,6 +31,9 @@ public class Main {
 
         //Square low
         Geometry3D res4 = square.getSquare3D(csg, false, false);
-        csg.view(res4);
+//        csg.view(res4);
+
+        Geometry3D resFinal = csg.union3D(res1, res2, res3, res4);
+        csg.view(resFinal);
     }
 }
