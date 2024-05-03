@@ -8,27 +8,29 @@ public class Main {
 
         JavaCSG csg = JavaCSGFactory.createNoCaching();
 
+        //todo fix inputs to scale properly
+
         //universal inputs
         int detail = 64;
-        double scale = 1.0;
 
         //brick inputs
-        double width = 5.0 * scale;
-        double height = 15.0* scale;
+        double brickScale = 1.0;
+
+        double width = 5.0 * brickScale;
+        double height = 15.0 * brickScale;
         double indentMultiplier = 0.66;
         double heightMultiplier = 0.75;
         double ringCutout = 1.0;
         double ringCutoutSize = 0.8;
 
         //board inputs
-        double boardSize = (width * 10) * scale;
-        double space = 1.5* scale;
-        double boardHeight = 3.0* scale;
-        double brickHoleSize = (width * 1.5)* scale;
-        double brickHoleDepth = (boardHeight * 0.5) * scale;
+        double boardScale = 1.1;
 
-
-
+        double boardSize = (width * 10) * boardScale;
+        double space = 1.5 * boardScale;
+        double boardHeight = 3.0 * boardScale;
+        double brickHoleSize = (width * 1.5) * boardScale;
+        double brickHoleDepth = (boardHeight * 0.5) * boardScale;
 
         // Initializes an ArrayList to hold our objects
         ArrayList<Geometry3D> resArray = new ArrayList<>();

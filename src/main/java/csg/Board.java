@@ -63,13 +63,15 @@ public class Board {
         Geometry3D boardBrickHole = getCircle3D(csg);
 
         // moves the brick hole to the top of the board on Z-axis
-        boardBrickHole = csg.translate3DZ(height*0.5).transform(boardBrickHole);
+        boardBrickHole = csg.translate3DZ(height * 0.5).transform(boardBrickHole);
+
+        //todo fix holes to properly fit board (they are slightly off)
 
         // moves the brick hole to be centered on the board on the X-axis
-        boardBrickHole = csg.translate3DX(boardSize * 0.5 - space*1.75).transform(boardBrickHole);
+        boardBrickHole = csg.translate3DX(boardSize * 0.5 - space * 1.75).transform(boardBrickHole);
 
         // moves the brick hole to the side of the board on the Y-axis
-        boardBrickHole = csg.translate3DY(boardSize * 0.5 - space*1.5).transform(boardBrickHole);
+        boardBrickHole = csg.translate3DY(boardSize * 0.5 - space * 1.5).transform(boardBrickHole);
 
         // rotates the board 45 degrees
         board = csg.rotate3DZ(csg.degrees(45)).transform(board);
@@ -90,6 +92,7 @@ public class Board {
 
     // moves the final board, so that it's not ontop of the bricks
     private Geometry3D moveBoard(JavaCSG csg, Geometry3D board) {
+        //todo calculate distance from inputs (don't hardcode it!)
         double distance = 80.0;
         board = csg.translate3DX(distance).transform(board);
         return board;
